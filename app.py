@@ -45,7 +45,7 @@ if page == "Edit Data":
                 transmisi_baru = st.selectbox("transmisi", list_transmisi, list_transmisi.index(transmisi_lama))
                 yang_ditangani_baru = st.multiselect("yang_ditangani", ["Perawatan", "Ganti Ban", "Ganti Oli", "Ganti Aki"], eval(yang_ditangani_lama))
                 harga_servis_baru = st.text_input("harga_servis", harga_servis_lama)
-                servi_ke_baru = st.text_input("servis_ke", servis_ke_lama)
+                servis_ke_baru = st.text_input("servis_ke", servis_ke_lama)
                 waktu_pengerjaan_baru = st.text_input("waktu", waktu_pengerjaan_lama)
                 tanggal_pengerjaan_baru = st.date_input("tanggal_pengerjaan", tanggal_pengerjaan_lama)
                 
