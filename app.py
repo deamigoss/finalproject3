@@ -23,7 +23,7 @@ if page == "Edit Data":
         with conn.session as session:
             query = text('INSERT INTO services (nama_montir, nama_motor, transmisi, yang_ditangani, harga_service, servis_ke, waktu_pengerjaan, tanggal_pengerjaan) \
                           VALUES (:1, :2, :3, :4, :5, :6, :7, :8);')
-            session.execute(query, {'1':'', '2':'', '3':'', '4':'', '5':'', '6':'', '7':'', '8':None})
+            session.execute(query, {'1':'', '2':'', '3':'', '4':'[]', '5':'', '6':'', '7':'', '8':None})
             session.commit()
 
     data = conn.query('SELECT * FROM services ORDER By id;', ttl="0")
@@ -43,7 +43,7 @@ if page == "Edit Data":
                 nama_montir_baru = st.selectbox("nama_montir", list_montir, list_montir.index(nama_montir_lama))
                 nama_motor_baru = st.text_input("nama_motor", nama_motor_lama)
                 transmisi_baru = st.selectbox("transmisi", list_transmisi, list_transmisi.index(transmisi_lama))
-                yang_ditangani_baru = st.text_input("yang_ditangani", yang_ditangani_lama)
+                yang_ditangani_baru = st.multiselect("yang_ditangani", ['Pemeliharaan', 'Ganti_Ban', 'Ganti_Oli', 'Ganti_Aki'], eval(yang_ditangani_lama))
                 harga_servis_baru = st.text_input("harga_servis", harga_servis_lama)
                 servis_ke_baru = st.text_input("servis_ke", servis_ke_lama)
                 waktu_pengerjaan_baru = st.text_input("waktu", waktu_pengerjaan_lama)
@@ -58,7 +58,7 @@ if page == "Edit Data":
                                           SET nama_montir=:1, nama_montor=:2, transmisi=:3, yang_ditangani=:4, \
                                           harga_servis=:5, servis_ke=:6, waktu_pengerjaan=:7, tanggal_pengerjaan=:8 \
                                           WHERE id=:9;')
-                            session.execute(query, {'1':nama_montir_baru, '2':nama_motor_baru, '3':transmisi_baru, '4':yang_ditangani_baru, 
+                            session.execute(query, {'1':nama_montir_baru, '2':nama_motor_baru, '3':transmisi_baru, '4':str(yang_ditangani_baru), 
                                                     '5':harga_servis_baru, '6':servis_ke_baru, '7':waktu_pengerjaan_baru, '8':tanggal_pengerjaan_baru, '9':id})
                             session.commit()
                             st.experimental_rerun()
