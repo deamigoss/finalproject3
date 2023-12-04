@@ -23,7 +23,7 @@ if page == "Edit Data":
         with conn.session as session:
             query = text('INSERT INTO services (nama_montir, nama_motor, transmisi, yang_ditangani, harga_service, servis_ke, waktu_pengerjaan, tanggal_pengerjaan) \
                           VALUES (:1, :2, :3, :4, :5, :6, :7, :8);')
-            session.execute(query, {'1':'', '2':'', '3':'', '4':'[]', '5':'', '6':'', '7':'', '8':None})
+            session.execute(query, {'1':'', '2':'', '3':'', '4':'', '5':'', '6':'', '7':'', '8':None})
             session.commit()
 
     data = conn.query('SELECT * FROM services ORDER By id;', ttl="0")
