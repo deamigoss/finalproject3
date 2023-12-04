@@ -58,7 +58,7 @@ if page == "Edit Data":
                                           SET nama_montir=:1, nama_montor=:2, transmisi=:3, yang_ditangani=:4, \
                                           harga_servis=:5, servis_ke=:6, waktu_pengerjaan=:7, tanggal_pengerjaan=:8 \
                                           WHERE id=:9;')
-                            session.execute(query, {'1':nama_montir_baru, '2':nama_motor_baru, '3':transmisi_baru, '4':(yang_ditangani_baru), 
+                            session.execute(query, {'1':nama_montir_baru, '2':nama_motor_baru, '3':transmisi_baru, '4':yang_ditangani_baru, 
                                                     '5':harga_servis_baru, '6':servis_ke_baru, '7':waktu_pengerjaan_baru, '8':tanggal_pengerjaan_baru, '9':id})
                             session.commit()
                             st.experimental_rerun()
