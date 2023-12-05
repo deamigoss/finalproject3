@@ -11,7 +11,7 @@ with conn.session as session:
                                                        yang_ditangani text, harga_service varchar, servis_ke text, tanggal_pengerjaan date);')
     session.execute(query)
 
-st.header('SIMPLE RECORD PEKERJAAN')
+st.header('SIMPLE RECORD PEKERJAAN MONTIR')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data"])
 
 if page == "View Data":
