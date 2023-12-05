@@ -55,7 +55,7 @@ if page == "Edit Data":
                     if st.form_submit_button('UPDATE'):
                         with conn.session as session:
                             query = text('UPDATE services \
-                                          SET nama_montir=:1, nama_montor=:2, transmisi=:3, yang_ditangani=:4, \
+                                          SET nama_montir=:1, nama_motor=:2, transmisi=:3, yang_ditangani=:4, \
                                           harga_servis=:5, servis_ke=:6, waktu_pengerjaan=:7, tanggal_pengerjaan=:8 \
                                           WHERE id=:9;')
                             session.execute(query, {'1':nama_montir_baru, '2':nama_motor_baru, '3':transmisi_baru, '4':str(yang_ditangani_baru), 
